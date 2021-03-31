@@ -16,11 +16,12 @@ If for whatever reason you need to reset your iOS music library, you can do so w
 Tested on iPhone X, 13.5.1 - compatibility for other devices/iOS unknown.
 
 ---
-### JSON Format:
+### JSON Format
 | Key | Type | Value |
 | ----------- | ----------- | ----------- |
-| import | Array  | `ImportItem` objects
-| remove | Array | `RemoveItem` objects
+| import | Array  | `ImportItem` objects |
+| remove | Array | `RemoveItem` objects |
+
 If you don't want to import/remove you can just use an empty array for either key.
 
 **Example JSON:**
@@ -72,6 +73,7 @@ If you don't want to import/remove you can just use an empty array for either ke
 | artist | String | Artist to filter by |
 | album | String | Album to filter by |
 | title | String | Title to filter by |
+
 Any of these keys can be omitted, for example if you only want to filter by `title` your `RemoveItem` object JSON could look like this:
 ```json
 {
