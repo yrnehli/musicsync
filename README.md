@@ -56,22 +56,22 @@ If you don't want to import/remove you can just use an empty array for either ke
 | ----------- | ----------- | ----------- |
 | url | String | URL of the song file |
 | artworkUrl | String | URL of the artwork for the song |
-| artist | String | Song artist
-| duration | Integer | Song duration in ms
-| discNumber | Integer | Disc number of the song
-| trackNumber | Integer | Track number of the song
-| year | Integer | Year of the song
-| genre | String | Genre of the song
-| title | String | Title of the song
-| album | String | Album of the song
-| albumArtist | String | Album artist of the song
+| artist | String | Song artist |
+| duration | Integer | Song duration in ms |
+| discNumber | Integer | Disc number of the song |
+| trackNumber | Integer | Track number of the song |
+| year | Integer | Year of the song |
+| genre | String | Genre of the song |
+| title | String | Title of the song |
+| album | String | Album of the song |
+| albumArtist | String | Album artist of the song |
 ---
 ### RemoveItem
 | Key | Type| Value |
 | ----------- | ----------- | ----------- |
 | artist | String | Artist to filter by |
 | album | String | Album to filter by |
-| title | String | Title to filter by
+| title | String | Title to filter by |
 Any of these keys can be omitted, for example if you only want to filter by `title` your `RemoveItem` object JSON could look like this:
 ```json
 {
