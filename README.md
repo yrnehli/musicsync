@@ -20,7 +20,7 @@ Tested on iPhone X, 13.5.1 - compatibility for other devices/iOS unknown.
 | Key | Type | Value |
 | ----------- | ----------- | ----------- |
 | import | Array  | `ImportItem` objects |
-| remove | Array | `RemoveItem` objects |
+| remove | Array | `RemoveFilterItem` objects |
 
 If you don't want to import/remove you can just use an empty array for either key.
 
@@ -67,20 +67,20 @@ If you don't want to import/remove you can just use an empty array for either ke
 | album | String | Album of the song |
 | albumArtist | String | Album artist of the song |
 ---
-### RemoveItem
+### RemoveFilterItem
 | Key | Type| Value |
 | ----------- | ----------- | ----------- |
 | artist | String | Artist to filter by |
 | album | String | Album to filter by |
 | title | String | Title to filter by |
 
-Any of these keys can be omitted, for example if you only want to filter by `title` your `RemoveItem` object JSON could look like this:
+Any of these keys can be omitted, for example if you only want to filter by `title` your `RemoveFilterItem` object JSON could look like this:
 ```json
 {
 	"title": "Bandana"
 }
 ```
-If you want to remove all songs you can simply use an empty `RemoveItem` object:
+If you want to remove all songs you can simply use an empty `RemoveFilterItem` object:
 ```json
 {}
 ```
