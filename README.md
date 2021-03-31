@@ -8,7 +8,7 @@ If for whatever reason you need to reset your iOS music library, you can do so w
 - Delete the folder `/var/mobile/Media/iTunes_Control/Music`
 - Delete `/var/mobile/Media/iTunes_Control/iTunes/MediaLibrary.sqlitedb`
 - Delete `/var/mobile/Media/iTunes_Control/iTunes/MediaLibrary.sqlitedb-shm`
-- Delete` /var/mobile/Media/iTunes_Control/iTunes/MediaLibrary.sqlitedb-wal`
+- Delete `/var/mobile/Media/iTunes_Control/iTunes/MediaLibrary.sqlitedb-wal`
 - Delete the files inside `/var/mobile/Media/iTunes_Control/Sync/Media`
 - Respring
 - Open Music App
