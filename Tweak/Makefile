@@ -1,6 +1,6 @@
 DEBUG = 0
 PACKAGE_VERSION = $(THEOS_PACKAGE_BASE_VERSION)
-ARCHS = armv7 armv7s arm64
+ARCHS = armv7 armv7s arm64 arm64e
 
 include $(THEOS)/makefiles/common.mk
 
