@@ -13,7 +13,7 @@ If for whatever reason you need to reset your iOS music library, you can do so w
 - Respring
 - Open Music App
 
-Tested on iPhone X, 13.5.1 - compatibility for other devices/iOS unknown.
+Tested on iPhone X, 13.5.1 & 14.3 - compatibility for other devices/iOS unknown.
 
 ---
 ### JSON Format
