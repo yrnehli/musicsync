@@ -17,10 +17,10 @@ Tested on iPhone X, 13.5.1 & 14.3 - compatibility for other devices/iOS unknown.
 
 ---
 ### JSON Format
-| Key | Type | Value |
-| ----------- | ----------- | ----------- |
-| import | Array  | `ImportItem` objects |
-| remove | Array | `RemoveFilterItem` objects |
+| Key | Type | Value | Required |
+| ----------- | ----------- | ----------- | ----------- |
+| import | Array  | `ImportItem` objects | Yes
+| remove | Array | `RemoveFilterItem` objects | Yes
 
 If you don't want to import/remove you can just use an empty array for either key.
 
@@ -53,26 +53,26 @@ If you don't want to import/remove you can just use an empty array for either ke
 
 ---
 ### ImportItem
-| Key | Type| Value |
-| ----------- | ----------- | ----------- |
-| url | String | URL of the song file |
-| artworkUrl | String | URL of the artwork for the song |
-| artist | String | Song artist |
-| duration | Integer | Song duration in ms |
-| discNumber | Integer | Disc number of the song |
-| trackNumber | Integer | Track number of the song |
-| year | Integer | Year of the song |
-| genre | String | Genre of the song |
-| title | String | Title of the song |
-| album | String | Album of the song |
-| albumArtist | String | Album artist of the song |
+| Key | Type| Value | Required |
+| ----------- | ----------- | ----------- | ----------- |
+| url | String | URL of the song file | Yes
+| artworkUrl | String | URL of the artwork for the song | Yes
+| artist | String | Song artist | Yes
+| duration | Integer | Song duration in ms | Yes
+| discNumber | Integer | Disc number of the song | Yes
+| trackNumber | Integer | Track number of the song | Yes
+| year | Integer | Year of the song | Yes
+| genre | String | Genre of the song | Yes
+| title | String | Title of the song | Yes
+| album | String | Album of the song | Yes
+| albumArtist | String | Album artist of the song | Yes
 ---
 ### RemoveFilterItem
-| Key | Type| Value |
-| ----------- | ----------- | ----------- |
-| artist | String | Artist to filter by |
-| album | String | Album to filter by |
-| title | String | Title to filter by |
+| Key | Type| Value | Required |
+| ----------- | ----------- | ----------- | ----------- |
+| artist | String | Artist to filter by | No
+| album | String | Album to filter by | No
+| title | String | Title to filter by | No
 
 Any of these keys can be omitted, for example if you only want to filter by `title` your `RemoveFilterItem` object JSON could look like this:
 ```json
