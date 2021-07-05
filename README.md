@@ -18,7 +18,7 @@ Tested on iPhone X, 13.5.1 & 14.3 - compatibility for other devices/iOS unknown.
 ---
 ### JSON Format
 | Key | Type | Value | Max Length | Required |
-| ----------- | ----------- | ----------- | ----------- |
+| ----------- | ----------- | ----------- | ----------- | ----------- |
 | import | Array  | `ImportItem` objects | 900 | Yes
 | remove | Array | `RemoveFilterItem` objects | N/A | Yes
 
