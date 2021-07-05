@@ -5,22 +5,17 @@
 #import <CoreFoundation/CFNotificationCenter.h>
 #import <dlfcn.h>
 
+@interface SSDownloadManager : NSObject
++ (id)IPodDownloadManager;
+- (void)addDownloads:(id)arg1 completionBlock:(id /* block */)arg2;
+@end
+
 @interface SSDownloadMetadata : NSObject
 - (id)initWithDictionary:(id)arg1;
 @end
 
-@interface SSDownloadQueue : NSObject
-+ (id)mediaDownloadKinds;
-- (id)initWithDownloadKinds:(id)arg1;
-- (BOOL)addDownload:(id)arg1;
-@end
-
 @interface SSDownload : NSObject
 - (id)initWithDownloadMetadata:(id)arg1;
-- (void)setDownloadHandler:(id)arg1 completionBlock:(id)arg2;
-- (void)pause;
-- (void)restart;
-- (void)resume;
 @end
 
 @interface MPMediaEntity : NSObject

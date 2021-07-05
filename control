@@ -1,7 +1,7 @@
 Package: xyz.henryli17.musicsync
 Name: musicsync
 Depends: mobilesubstrate
-Version: 0.0.1
+Version: 0.0.2
 Architecture: iphoneos-arm
 Description: CLI tool to sync music using a JSON file
 Maintainer: Henry Li <henry_li@web.de>

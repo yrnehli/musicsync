@@ -46,66 +46,67 @@ static void pushNotification(NSString *title, NSString *message) {
 }
 
 void import(NSArray *importEntries) {
-	SSDownloadQueue *dlQueue = [[SSDownloadQueue alloc] initWithDownloadKinds:[SSDownloadQueue mediaDownloadKinds]];
+	SSDownloadManager* downloadManager = [SSDownloadManager IPodDownloadManager];	
+	NSMutableArray *downloads = [[NSMutableArray alloc] init];
 
 	for (NSDictionary *importEntry in importEntries) {	
-		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-			NSString *url = [importEntry objectForKey:@"url"];
-			NSString *artworkUrl = [importEntry objectForKey:@"artworkUrl"];
-			NSString *artist = [importEntry objectForKey:@"artist"];
-			NSNumber *duration = [importEntry objectForKey:@"duration"];
-			NSNumber *discNumber = [importEntry objectForKey:@"discNumber"];
-			NSNumber *trackNumber = [importEntry objectForKey:@"trackNumber"];
-			NSNumber *year = [importEntry objectForKey:@"year"];
-			NSString *genre = [importEntry objectForKey:@"genre"];
-			NSString *title = [importEntry objectForKey:@"title"];
-			NSString *album = [importEntry objectForKey:@"album"];
-			NSString *albumArtist = [importEntry objectForKey:@"albumArtist"];
-			int itemId = (arc4random() % 100000000) + 1;
+		NSString *url = [importEntry objectForKey:@"url"];
+		NSString *artworkUrl = [importEntry objectForKey:@"artworkUrl"];
+		NSString *artist = [importEntry objectForKey:@"artist"];
+		NSNumber *duration = [importEntry objectForKey:@"duration"];
+		NSNumber *discNumber = [importEntry objectForKey:@"discNumber"];
+		NSNumber *trackNumber = [importEntry objectForKey:@"trackNumber"];
+		NSNumber *year = [importEntry objectForKey:@"year"];
+		NSString *genre = [importEntry objectForKey:@"genre"];
+		NSString *title = [importEntry objectForKey:@"title"];
+		NSString *album = [importEntry objectForKey:@"album"];
+		NSString *albumArtist = [importEntry objectForKey:@"albumArtist"];
+		int itemId = (arc4random() % 100000000) + 1;
 
-			// See https://developer.apple.com/documentation/ituneslibrary
-			NSDictionary *payloadImport = @{
-				@"purchaseDate": [NSDate date],
-				@"is-purchased-redownload": @YES,
-				@"URL": url,
-				@"artworkURL": artworkUrl,
-				@"artwork-urls": @{
-					@"default": @{
-						@"url": artworkUrl,
-					}, 
-					@"image-type": @"download-queue-item"
-				},
-				@"songId": @(itemId),
-				@"metadata": @{
-					@"artistName": artist,
-					@"compilation": @NO,
-					@"drmVersionNumber": @0,
-					@"duration": duration,
-					@"explicit": @NO,
-					@"gapless": @NO,
-					@"genre": genre,
-					@"isMasteredForItunes": @NO,
-					@"itemId": @(itemId),
-					@"itemName": title,
-					@"kind": @"song",
-					@"playlistArtistName": albumArtist,
-					@"playlistName": album,
-					@"releaseDate": [NSDate date], 
-					@"sort-album": album,
-					@"sort-artist": artist,
-					@"sort-name": title,
-					@"discNumber": discNumber,
-					@"trackNumber": trackNumber,
-					@"year": year
-				}
-			};
-			
-			SSDownloadMetadata *metadata = [[SSDownloadMetadata alloc] initWithDictionary:payloadImport];
-			SSDownload *download = [[SSDownload alloc] initWithDownloadMetadata:metadata];
+		// See https://developer.apple.com/documentation/ituneslibrary
+		NSDictionary *payloadImport = @{
+			@"purchaseDate": [NSDate date],
+			@"is-purchased-redownload": @YES,
+			@"URL": url,
+			@"artworkURL": artworkUrl,
+			@"artwork-urls": @{
+				@"default": @{
+					@"url": artworkUrl,
+				}, 
+				@"image-type": @"download-queue-item"
+			},
+			@"songId": @(itemId),
+			@"metadata": @{
+				@"artistName": artist,
+				@"compilation": @NO,
+				@"drmVersionNumber": @0,
+				@"duration": duration,
+				@"explicit": @NO,
+				@"gapless": @NO,
+				@"genre": genre,
+				@"isMasteredForItunes": @NO,
+				@"itemId": @(itemId),
+				@"itemName": title,
+				@"kind": @"song",
+				@"playlistArtistName": albumArtist,
+				@"playlistName": album,
+				@"releaseDate": [NSDate date], 
+				@"sort-album": album,
+				@"sort-artist": artist,
+				@"sort-name": title,
+				@"discNumber": discNumber,
+				@"trackNumber": trackNumber,
+				@"year": year
+			}
+		};
+		
+		SSDownloadMetadata *metadata = [[SSDownloadMetadata alloc] initWithDictionary:payloadImport];
+		SSDownload *download = [[SSDownload alloc] initWithDownloadMetadata:metadata];
 
-			[dlQueue performSelectorInBackground:@selector(addDownload:) withObject:download];
-		});
+		[downloads addObject:download];
 	}
+
+	[downloadManager addDownloads:downloads completionBlock:nil];
 }
 
 void remove(NSArray *removalEntries) {
