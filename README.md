@@ -1,5 +1,5 @@
 # musicsync
-A CLI tool that lets you import/remove from your music library using a JSON file. Useful for mass imports/removals.
+A CLI tool that lets you import/remove from your music library wirelessly. Useful for mass imports/removals.
 
 Usage: `musicsync <json path>`
 
